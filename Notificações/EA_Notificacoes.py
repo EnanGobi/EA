@@ -46,18 +46,18 @@ class Totais:
        
         resto = ((valor * 0.01)*1000000) % 10
 
-        if resto <= 5:
-            self.taxas_irrf = truncate((valor * 0.01),2)
+        if valor > 0:
+            if resto <= 5:
+                self.taxas_irrf = truncate((valor * 0.01),2)
+            else:
+                self.taxas_irrf = round((valor * 0.01),2)
         else:
-            self.taxas_irrf = round((valor * 0.01),2)
+            self.taxas_irrf = 0
 
-        self.taxas_total = self.taxas_emonumentos + self.taxas_irrf + self.taxas_irrf
+        self.taxas_total = self.taxas_emonumentos + self.taxas_irrf + self.taxas_registro
 
     def total_diario(self):
         return self.diario_valor - self.taxas_total
-
-    def total_diario_investidor(self):
-        return self.total_diario() * 0.35
 
 def truncate(number, decimals=0):
     """
