@@ -10,7 +10,7 @@ class Totais:
     diario_valor = 0.0
     diario_contratos = 0
     diario_percentual = 0.0
-    valor_aplicado = 2600
+    valor_aplicado = 3200
 
     taxas_emonumentos = 0
     taxas_irrf = 0
@@ -22,7 +22,7 @@ class Totais:
         mes = date.today().strftime("%m")
         ano = date.today().strftime("%G")
 
-        sql_diario = f"select r.TOTAL_GANHO_RS - R.TOTAL_PERDA_RS AS TOTAL, r.TOTAL_CONTRATOS from ea_resultados r where dia = '{int(dia)}' and mes = '{int(mes)}' and ano = '{ano}' and conta = 'CLEAR'"
+        sql_diario = f"select r.TOTAL_GANHO_RS - R.TOTAL_PERDA_RS AS TOTAL, r.TOTAL_CONTRATOS from ea_resultados r where dia = '{int(dia)}' and mes = '{int(mes)}' and ano = '{ano}'"
 
         rs = execute_sql(sql_diario)
         
@@ -108,8 +108,8 @@ def get_mensagem():
 if __name__ == '__main__':
     locale.setlocale(locale.LC_MONETARY,'pt_BR.UTF-8')
 
-    meu_token = '7148549027:AAE1XH3j3oLUO9YxN5BIY4VKzoHhJflqFC4'
-    id_grupo = -1002091617188
+    meu_token = '7026128096:AAHMF3Cu6RNjutJ3BPD9yVwL9_07IsGHH_M'
+    id_grupo = -4139752600
     
     bot = telegram.Bot(token=meu_token)
     asyncio.run(bot.send_message(chat_id = id_grupo, text = get_mensagem()))
