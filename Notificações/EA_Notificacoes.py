@@ -86,18 +86,17 @@ def get_mensagem():
     
     data = date.today().strftime("%d/%m/%G")
 
-    mensagem = f"Data: {data}\n"
+    mensagem = f"Data: {data}"
     mensagem = mensagem + "\n\n"
     mensagem = mensagem + f"Saldo Bruto: {locale.currency(totais.diario_valor)}\n"
     mensagem = mensagem + f"Contratos Negociados: {totais.diario_contratos}\n"
     mensagem = mensagem + f"Lucro Sobre o Valor Aplicado: " + "{:.2%}".format(totais.diario_percentual)
     mensagem = mensagem + "\n\n"
-    mensagem = mensagem + "Taxas\n"
     mensagem = mensagem + f"IRRF: {locale.currency(totais.taxas_irrf)}\n"
     mensagem = mensagem + f"Registro: {locale.currency(totais.taxas_registro)}\n"
     mensagem = mensagem + f"Emolumentos: {locale.currency(totais.taxas_emonumentos)}"
     mensagem = mensagem + "\n\n"
-    mensagem = mensagem + f"Total Líquido: {locale.currency(totais.total_diario())}\n"
+    mensagem = mensagem + f"Total Líquido: {locale.currency(totais.total_diario())}"
     mensagem = mensagem + "\n\n"
 
     return mensagem
